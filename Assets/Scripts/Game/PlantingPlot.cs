@@ -10,7 +10,7 @@ namespace Assets.Scripts.Game
     {
         private Tree tree;
 
-        internal Tree Tree { get => tree; set => tree = value; }
+        public Tree Tree { get => tree; set => tree = value; }
 
         public PlantingPlot()
         {
@@ -23,7 +23,7 @@ namespace Assets.Scripts.Game
 
         public void Plant(Tree tree)
         {
-            if (tree == null)
+            if (tree != null)
             {
                 Tree = tree;
             }

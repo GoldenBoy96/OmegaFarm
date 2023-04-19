@@ -10,7 +10,7 @@ namespace Assets.Scripts.Game
     {
         private string name;
         private List<PlantingPlot> plots;
-        private List<Item> items;
+        private Inventory inventory;
         private int workers;
         private int coins;
         private List<DateTime> equipmentsUpgrades;
@@ -20,15 +20,16 @@ namespace Assets.Scripts.Game
         public int Workers { get => workers; set => workers = value; }
         public int Coins { get => coins; set => coins = value; }
         public List<DateTime> EquipmentsUpgrades { get => equipmentsUpgrades; set => equipmentsUpgrades = value; }
-        internal List<PlantingPlot> Plots { get => plots; set => plots = value; }
-        internal List<Item> Items { get => items; set => items = value; }
-        internal List<Tree> DeadTrees { get => deadTrees; set => deadTrees = value; }
+        public List<PlantingPlot> Plots { get => plots; set => plots = value; }
+        public List<Tree> DeadTrees { get => deadTrees; set => deadTrees = value; }
+        internal Inventory Inventory { get => inventory; set => inventory = value; }
 
         public Player(string name)
         {
             this.name = name;
             this.workers = 1;
             this.coins = 0;
+            this.plots = new();
             //default item
             this.EquipmentsUpgrades = new List<DateTime>();
             this.EquipmentsUpgrades.Add(DateTime.Now);
