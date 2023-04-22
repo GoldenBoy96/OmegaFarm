@@ -9,7 +9,7 @@ public class Plot : MonoBehaviour
 {
     private int plotId;
     [SerializeField] private Color baseColor, offsetColor;
-    [SerializeField] private SpriteRenderer renderer;
+    [SerializeField] private new SpriteRenderer renderer;
     [SerializeField] private GameObject highlight;
 
     public void Init(bool isOffset)
@@ -24,22 +24,22 @@ public class Plot : MonoBehaviour
 
     private void Update()
     {
-        
+
         if (CheckTree() != 0)
         {
             CheckProduct();
         }
-        
+
     }
     int CheckTree()
     {
         int treeType;
         try
         {
-            treeType = PlayerController.Instance.GetTree(plotId).TreeType;
+            treeType = UIController.Instance.GetTree(plotId).TreeType;
 
         }
-        catch (Exception e)
+        catch
         {
             treeType = 0;
         }
@@ -62,16 +62,57 @@ public class Plot : MonoBehaviour
                 bool hasTree = false;
                 foreach (Transform child in transform)
                 {
-                    if (child.tag.Equals("Tree"))
+                    if (child.CompareTag("Tree"))
                     {
                         hasTree = true;
                     }
                 }
-                if (!hasTree) {
-                    //Debug.Log(Resources.Load("Prefabs/TomatoTree"));
+                if (!hasTree)
+                {
                     Instantiate(Resources.Load("Prefabs/TomatoTree"), this.transform);
-                }               
-                
+                }
+                break;
+            case 2:
+                hasTree = false;
+                foreach (Transform child in transform)
+                {
+                    if (child.CompareTag("Tree"))
+                    {
+                        hasTree = true;
+                    }
+                }
+                if (!hasTree)
+                {
+                    Instantiate(Resources.Load("Prefabs/BlueBerryTree"), this.transform);
+                }
+                break;
+            case 3:
+                hasTree = false;
+                foreach (Transform child in transform)
+                {
+                    if (child.CompareTag("Tree"))
+                    {
+                        hasTree = true;
+                    }
+                }
+                if (!hasTree)
+                {
+                    Instantiate(Resources.Load("Prefabs/DairyCowTree"), this.transform);
+                }
+                break;
+            case 4:
+                hasTree = false;
+                foreach (Transform child in transform)
+                {
+                    if (child.CompareTag("Tree"))
+                    {
+                        hasTree = true;
+                    }
+                }
+                if (!hasTree)
+                {
+                    Instantiate(Resources.Load("Prefabs/StrawBerryTree"), this.transform);
+                }
                 break;
         }
 
@@ -83,7 +124,7 @@ public class Plot : MonoBehaviour
         if (CheckTree() == 0)
         {
             Debug.Log("Plot: " + plotId);
-            PlayerController.Instance.PlantTree(plotId, 1);
+            UIController.Instance.PlantTree(plotId, 1);
         }
     }
 
@@ -91,15 +132,15 @@ public class Plot : MonoBehaviour
     {
         try
         {
-            Debug.Log(plotId + " | " + PlayerController.Instance.CheckProductOnTree(plotId));
-            int productOnTree = PlayerController.Instance.CheckProductOnTree(plotId);
+            Debug.Log(plotId + " | " + UIController.Instance.CheckProductOnTree(plotId));
+            int productOnTree = UIController.Instance.CheckProductOnTree(plotId);
             if (productOnTree > 0)
             {
                 foreach (Transform child in transform)
                 {
                     if (child.CompareTag("Tree"))
                     {
-                        foreach(Transform childChild in child)
+                        foreach (Transform childChild in child)
                         {
                             if (childChild.CompareTag("Product"))
                             {
@@ -108,9 +149,9 @@ public class Plot : MonoBehaviour
                         }
                         //Debug.Log(child.Find("Amount").GetComponentInChildren<TextMeshProUGUI>());
                         child.Find("Amount").GetComponentInChildren<TextMeshProUGUI>().SetText(productOnTree.ToString());
-                    }                    
+                    }
                 }
-                
+
                 //transform.Find("Amount").GetComponentInChildren<TextMeshPro>().SetText("1");
 
             }
@@ -132,29 +173,35 @@ public class Plot : MonoBehaviour
                 }
             }
 
-            
+
         }
-        catch 
+        catch
         {
-            
+
         }
     }
 
-    private void Havert()
+    public void Havert()
     {
-        PlayerController.Instance.Harvert(plotId);
+        try
+        {
+            UIController.Instance.Harvert(plotId);
+        }
+        catch
+        {
+        }
     }
 
-    private void OnMouseDown()
-    {
-        PlantTree();
-        Havert();
-    }
+    //private void OnMouseDown()
+    //{
+    //    PlantTree();
+    //    Havert();
+    //}
 
     void OnMouseEnter()
     {
         highlight.SetActive(true);
-        
+
     }
 
     void OnMouseExit()

@@ -13,154 +13,81 @@
         },
         "CooldownTime": 0.1,
         "MaxProduct": 40,
-        "OnTreeNumber": 31,
+        "OnTreeNumber": 40,
         "HavertedNumber": 0,
-        "PlantedTime": "2023-04-22T16:35:11.3838729+07:00",
-        "PreviousProductTime": "2023-04-22T16:38:17.3838729+07:00"
+        "PlantedTime": "2023-04-22T23:45:41.4896449+07:00",
+        "PreviousProductTime": "2023-04-22T23:45:44.4896449+07:00",
+        "TimeBeforeDead": 1.0
       }
     },
     {
       "Tree": {
-        "TreeType": 1,
+        "TreeType": 4,
         "Product": {
-          "Name": "Tomato",
+          "Name": "StrawBerry",
           "SellPrice": 5,
           "IsPlantable": false,
           "TreeType": 0
         },
-        "CooldownTime": 0.1,
-        "MaxProduct": 40,
-        "OnTreeNumber": 31,
+        "CooldownTime": 0.05,
+        "MaxProduct": 20,
+        "OnTreeNumber": 20,
         "HavertedNumber": 0,
-        "PlantedTime": "2023-04-22T16:35:12.0953918+07:00",
-        "PreviousProductTime": "2023-04-22T16:38:18.0953918+07:00"
+        "PlantedTime": "2023-04-22T23:45:42.7638503+07:00",
+        "PreviousProductTime": "2023-04-22T23:45:43.5038503+07:00",
+        "TimeBeforeDead": 10.0
       }
     },
     {
       "Tree": {
-        "TreeType": 1,
+        "TreeType": 2,
         "Product": {
-          "Name": "Tomato",
-          "SellPrice": 5,
+          "Name": "BlueBerry",
+          "SellPrice": 8,
           "IsPlantable": false,
           "TreeType": 0
         },
-        "CooldownTime": 0.1,
+        "CooldownTime": 0.15,
         "MaxProduct": 40,
-        "OnTreeNumber": 31,
+        "OnTreeNumber": 25,
         "HavertedNumber": 0,
-        "PlantedTime": "2023-04-22T16:35:12.4225471+07:00",
-        "PreviousProductTime": "2023-04-22T16:38:18.4225471+07:00"
+        "PlantedTime": "2023-04-22T23:45:43.6361238+07:00",
+        "PreviousProductTime": "2023-04-22T23:45:46.4361238+07:00",
+        "TimeBeforeDead": 1.0
       }
     },
     {
-      "Tree": {
-        "TreeType": 1,
-        "Product": {
-          "Name": "Tomato",
-          "SellPrice": 5,
-          "IsPlantable": false,
-          "TreeType": 0
-        },
-        "CooldownTime": 0.1,
-        "MaxProduct": 40,
-        "OnTreeNumber": 31,
-        "HavertedNumber": 0,
-        "PlantedTime": "2023-04-22T16:35:12.7435435+07:00",
-        "PreviousProductTime": "2023-04-22T16:38:18.7435435+07:00"
-      }
+      "Tree": null
     },
     {
-      "Tree": {
-        "TreeType": 1,
-        "Product": {
-          "Name": "Tomato",
-          "SellPrice": 5,
-          "IsPlantable": false,
-          "TreeType": 0
-        },
-        "CooldownTime": 0.1,
-        "MaxProduct": 40,
-        "OnTreeNumber": 31,
-        "HavertedNumber": 0,
-        "PlantedTime": "2023-04-22T16:35:13.0476868+07:00",
-        "PreviousProductTime": "2023-04-22T16:38:19.0476868+07:00"
-      }
+      "Tree": null
     },
     {
-      "Tree": {
-        "TreeType": 1,
-        "Product": {
-          "Name": "Tomato",
-          "SellPrice": 5,
-          "IsPlantable": false,
-          "TreeType": 0
-        },
-        "CooldownTime": 0.1,
-        "MaxProduct": 40,
-        "OnTreeNumber": 31,
-        "HavertedNumber": 0,
-        "PlantedTime": "2023-04-22T16:35:13.3843955+07:00",
-        "PreviousProductTime": "2023-04-22T16:38:19.3843955+07:00"
-      }
-    },
-    {
-      "Tree": {
-        "TreeType": 1,
-        "Product": {
-          "Name": "Tomato",
-          "SellPrice": 5,
-          "IsPlantable": false,
-          "TreeType": 0
-        },
-        "CooldownTime": 0.1,
-        "MaxProduct": 40,
-        "OnTreeNumber": 30,
-        "HavertedNumber": 0,
-        "PlantedTime": "2023-04-22T16:35:14.1254463+07:00",
-        "PreviousProductTime": "2023-04-22T16:38:14.1254463+07:00"
-      }
-    },
-    {
-      "Tree": {
-        "TreeType": 1,
-        "Product": {
-          "Name": "Tomato",
-          "SellPrice": 5,
-          "IsPlantable": false,
-          "TreeType": 0
-        },
-        "CooldownTime": 0.1,
-        "MaxProduct": 40,
-        "OnTreeNumber": 30,
-        "HavertedNumber": 0,
-        "PlantedTime": "2023-04-22T16:35:13.736352+07:00",
-        "PreviousProductTime": "2023-04-22T16:38:13.736352+07:00"
-      }
+      "Tree": null
     }
   ],
   "Inventory": {
     "Slots": [
       {
-        "Amount": 10,
+        "Amount": 5,
         "Name": "TomatoSeed",
         "SellPrice": 1,
         "IsPlantable": true,
         "TreeType": 1
       },
       {
-        "Amount": 10,
+        "Amount": 8,
         "Name": "BlueBerrySeed",
         "SellPrice": 1,
         "IsPlantable": true,
         "TreeType": 2
       },
       {
-        "Amount": 2,
-        "Name": "DairyCowSeed",
-        "SellPrice": 50,
+        "Amount": 5,
+        "Name": "StrawBerrySeed",
+        "SellPrice": 1,
         "IsPlantable": true,
-        "TreeType": 3
+        "TreeType": 4
       }
     ],
     "NumberOfSlot": 100
@@ -171,9 +98,55 @@
       "Cooldown": 2.0
     }
   ],
-  "Coins": 100,
+  "Coins": 2140,
   "EquipmentsUpgrades": [
-    "2023-04-22T12:31:36.024519+07:00"
+    "2023-04-22T16:46:38.4051982+07:00",
+    "2023-04-22T23:44:47.5924041+07:00",
+    "2023-04-22T23:44:49.7562759+07:00",
+    "2023-04-22T23:44:49.8943732+07:00",
+    "2023-04-22T23:44:50.0659589+07:00",
+    "2023-04-22T23:44:50.2098619+07:00",
+    "2023-04-22T23:44:50.3557743+07:00",
+    "2023-04-22T23:44:50.4955221+07:00",
+    "2023-04-22T23:44:50.6736886+07:00",
+    "2023-04-22T23:44:50.8423772+07:00",
+    "2023-04-22T23:44:51.0309504+07:00",
+    "2023-04-22T23:44:51.1770984+07:00",
+    "2023-04-22T23:44:51.3560621+07:00",
+    "2023-04-22T23:44:51.5261451+07:00",
+    "2023-04-22T23:44:51.7927294+07:00",
+    "2023-04-22T23:44:51.9773844+07:00",
+    "2023-04-22T23:44:52.1479876+07:00",
+    "2023-04-22T23:44:52.479012+07:00",
+    "2023-04-22T23:44:52.6648757+07:00",
+    "2023-04-22T23:44:53.3501843+07:00",
+    "2023-04-22T23:44:53.7228646+07:00",
+    "2023-04-22T23:44:54.267124+07:00",
+    "2023-04-22T23:44:59.790811+07:00",
+    "2023-04-22T23:44:59.9489424+07:00",
+    "2023-04-22T23:45:00.08557+07:00",
+    "2023-04-22T23:45:00.2458531+07:00",
+    "2023-04-22T23:45:00.4021106+07:00",
+    "2023-04-22T23:45:00.5574403+07:00",
+    "2023-04-22T23:45:00.7258913+07:00",
+    "2023-04-22T23:45:00.8799759+07:00",
+    "2023-04-22T23:45:01.033116+07:00",
+    "2023-04-22T23:45:01.1907107+07:00",
+    "2023-04-22T23:45:06.3874972+07:00",
+    "2023-04-22T23:45:06.5499299+07:00",
+    "2023-04-22T23:45:06.6952286+07:00",
+    "2023-04-22T23:45:06.8699582+07:00",
+    "2023-04-22T23:45:07.0417682+07:00",
+    "2023-04-22T23:45:07.2011539+07:00",
+    "2023-04-22T23:45:07.3766063+07:00",
+    "2023-04-22T23:45:07.5450882+07:00",
+    "2023-04-22T23:45:07.7110008+07:00",
+    "2023-04-22T23:45:07.9063673+07:00",
+    "2023-04-22T23:45:08.0846412+07:00",
+    "2023-04-22T23:45:08.2569786+07:00",
+    "2023-04-22T23:45:08.4006403+07:00",
+    "2023-04-22T23:45:08.5675843+07:00",
+    "2023-04-22T23:45:08.751527+07:00"
   ],
   "DeadTrees": []
 }

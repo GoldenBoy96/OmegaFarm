@@ -32,8 +32,10 @@ public class Farm : MonoBehaviour
 
     public void ExpandFarm()
     {
-        PlayerController.Instance.BuyPlot();
-        plotPool.Pop();
+        if(UIController.Instance.BuyPlot())
+        {
+            plotPool.Pop();
+        }
     }
 
     
@@ -63,7 +65,7 @@ public class Farm : MonoBehaviour
             plotPool.Push(plotsList[i]);
         }
 
-        for (int i = 0; i < PlayerController.Instance.GetPlots().Count; i++)
+        for (int i = 0; i < UIController.Instance.GetPlots().Count; i++)
         {
             plotPool.Pop();
         }

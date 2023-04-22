@@ -36,6 +36,24 @@ namespace Assets.Scripts.Game
             player.Plots[plot].Plant(new Tree(treeType));
         }
 
+        public bool PlantTree(string itemName)
+        {
+            for (int i = 0; i < player.Plots.Count; i++)
+            {
+                if (player.Plots[i].Tree == null)
+                {
+                    if (player.Inventory.GetItemNumber(itemName) > 0)
+                    {
+                        Item item = new Item(itemName);
+                        PlantTree(i, item.TreeType);
+                        player.Inventory.Get(1, itemName);
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
         public Tree GetTree(int plot)
         {
             return player.Plots[plot].Tree;
@@ -50,9 +68,15 @@ namespace Assets.Scripts.Game
             return player.Plots;
         }
 
-        public void BuyPlot()
+        public bool BuyPlot()
         {
-            player.Plots.Add(new PlantingPlot());
+            if (player.Coins >= 500)
+            {
+                player.Coins -= 500;
+                player.Plots.Add(new PlantingPlot());
+                return true;
+            }
+            return false;
         }
 
         public void SaveData()
@@ -86,7 +110,42 @@ namespace Assets.Scripts.Game
 
         public ItemSlot Harvert(int plot)
         {
-           return player.Plots[plot].Tree.Havert();
+            if (player.Plots[plot].Tree.HavertedNumber >= player.Plots[plot].Tree.MaxProduct)
+            {
+                player.Plots[plot].RemoveTree();
+                
+            }
+            ItemSlot harvert = player.Plots[plot].Tree.Havert();
+            player.Inventory.Put(harvert.Name, harvert.Amount);
+            return harvert;
+        }
+
+        public void UpgradeEquipment()
+        {
+            player.UpgradeEquipment();
+        }
+
+        public int GetItemNumber(string itemName)
+        {
+            return player.Inventory.GetItemNumber(itemName);
+        }
+
+        public int GetPlayerCoin()
+        {
+            return player.Coins;
+        }
+
+        public void Sell(string itemName)
+        {
+            try
+            {
+                player.Coins += player.Inventory.GetPrice(itemName) * player.Inventory.Get(itemName).Amount;
+
+            }
+            catch
+            {
+
+            }
         }
     }
 }

@@ -10,15 +10,25 @@ namespace Assets.Scripts.Game
     {
         public void PlantTree(int plot, int treeType);
 
+        public bool PlantTree(string itemName);
+
         public Tree GetTree(int plot);
 
         public PlantingPlot GetPlot(int plot);
         public List<PlantingPlot> GetPlots();
 
-        public void BuyPlot();
+        public bool BuyPlot();
 
         public int CheckProductOnTree(int plot);
 
         public ItemSlot Harvert(int plot);
+
+        public void UpgradeEquipment();
+
+        public int GetItemNumber(string itemName);
+
+        public int GetPlayerCoin();
+
+        public void Sell(string itemName);
     }
 }

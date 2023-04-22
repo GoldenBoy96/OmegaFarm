@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Tree
   - Product
+  - Item
+  - TreeType
   layers:
   - Default
   - TransparentFX

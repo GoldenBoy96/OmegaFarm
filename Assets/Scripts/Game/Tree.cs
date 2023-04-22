@@ -19,6 +19,7 @@ namespace Assets.Scripts.Game
         private int havertedNumber;
         private DateTime plantedTime;
         private DateTime previousProductTime;
+        private float timeBeforeDead;
 
         [Index(0)]
         public int TreeType { get => treeType; set => treeType = value; }
@@ -36,6 +37,10 @@ namespace Assets.Scripts.Game
         public DateTime PlantedTime { get => plantedTime; set => plantedTime = value; }
         [Index(7)]
         public DateTime PreviousProductTime { get => previousProductTime; set => previousProductTime = value; }
+        [Index(8)]
+        public float TimeBeforeDead { get => timeBeforeDead; set => timeBeforeDead = value; }
+
+        
 
         public Tree()
         {
@@ -61,12 +66,13 @@ namespace Assets.Scripts.Game
                     this.HavertedNumber = 0;
                     this.PlantedTime = DateTime.Now;
                     this.PreviousProductTime = PlantedTime;
+                    this.TimeBeforeDead = tree.TimeBeforeDead;
                     break;
                 }
             }
         }
 
-        public Tree(int treeType, Item product, float cooldownTime, int maxProduct)
+        public Tree(int treeType, Item product, float cooldownTime, int maxProduct, int timeBeforeDead)
         {
             this.TreeType = treeType;
             this.Product = product;
@@ -76,6 +82,7 @@ namespace Assets.Scripts.Game
             this.HavertedNumber = 0;
             this.PlantedTime = DateTime.Now;
             this.PreviousProductTime = DateTime.Now;
+            this.TimeBeforeDead = timeBeforeDead;
         }
 
         
@@ -164,10 +171,10 @@ namespace Assets.Scripts.Game
         public static void WriteConfigFile()
         {
             List<Tree> defaultTree = new();
-            defaultTree.Add(new(1, new("Tomato"), 10, 40));
-            defaultTree.Add(new(2, new("BlueBerry"), 15, 40));
-            defaultTree.Add(new(3, new("Milk"), 30, 100));
-            defaultTree.Add(new(3, new("StrawBerry"), 5, 20));
+            defaultTree.Add(new(1, new("Tomato"), 10, 40, 60));
+            defaultTree.Add(new(2, new("BlueBerry"), 15, 40, 60));
+            defaultTree.Add(new(3, new("Milk"), 30, 100, 60));
+            defaultTree.Add(new(4, new("StrawBerry"), 5, 20, 60));
 
             JSON.SaveData(defaultTree,"Config/Tree.json");
         }

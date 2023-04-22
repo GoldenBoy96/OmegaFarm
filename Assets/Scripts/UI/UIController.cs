@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Tree = Assets.Scripts.Game.Tree;
 
-public class PlayerController : MonoBehaviour, IGameController, IUpdateStatus
+public class UIController : MonoBehaviour, IGameController, IUpdateStatus
 {
-    public static PlayerController Instance { get; private set; }
+    public static UIController Instance { get; private set; }
 
     GameController gameController = new GameController();
 
@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour, IGameController, IUpdateStatus
     void Start()
     {
         //Player.WriteConfigFile();
-        
+
         //Debug.Log(Tree.ReadConfigFile());
 
         //GameController.GenerateDefaultConfigFile();
@@ -70,12 +70,13 @@ public class PlayerController : MonoBehaviour, IGameController, IUpdateStatus
 
     public List<PlantingPlot> GetPlots()
     {
+        Debug.Log(gameController.GetPlots().Count);
         return gameController.GetPlots();
     }
 
-    public void BuyPlot()
+    public bool BuyPlot()
     {
-        gameController.BuyPlot();
+        return gameController.BuyPlot();
     }
 
     public int CheckProductOnTree(int plot)
@@ -88,5 +89,30 @@ public class PlayerController : MonoBehaviour, IGameController, IUpdateStatus
         return gameController.Harvert(plot);
     }
 
-    
+    public void UpgradeEquipment()
+    {
+        gameController.UpgradeEquipment();
+    }
+
+    public int GetItemNumber(string itemName)
+    {
+        return gameController.GetItemNumber(itemName);
+    }
+
+    public bool PlantTree(string itemName)
+    {
+        Debug.Log(itemName);
+        Debug.Log(new Item(itemName).TreeType);
+        return gameController.PlantTree(itemName);
+    }
+
+    public int GetPlayerCoin()
+    {
+        return gameController.GetPlayerCoin();
+    }
+
+    public void Sell(string itemName)
+    {
+        gameController.Sell(itemName);
+    }
 }
