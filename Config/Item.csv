@@ -1,0 +1,9 @@
+Name;SellPrice;IsPlantable;TreeType
+TomatoSeed;1;True;1
+Tomato;5;False;0
+BlueBerrySeed;1;True;2
+BlueBerry;8;False;0
+DairyCowSeed;50;True;3
+Milk;15;False;0
+StrawBerrySeed;10;True;4
+StrawBerry;5;False;0

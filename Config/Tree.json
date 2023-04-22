@@ -1,0 +1,62 @@
+[
+  {
+    "TreeType": 1,
+    "Product": {
+      "Name": "Tomato",
+      "SellPrice": 5,
+      "IsPlantable": false,
+      "TreeType": 0
+    },
+    "CooldownTime": 0.1,
+    "MaxProduct": 40,
+    "OnTreeNumber": 0,
+    "HavertedNumber": 0,
+    "PlantedTime": "2023-04-22T12:31:35.9788345+07:00",
+    "PreviousProductTime": "2023-04-22T12:31:35.9788345+07:00"
+  },
+  {
+    "TreeType": 2,
+    "Product": {
+      "Name": "BlueBerry",
+      "SellPrice": 8,
+      "IsPlantable": false,
+      "TreeType": 0
+    },
+    "CooldownTime": 1.0,
+    "MaxProduct": 40,
+    "OnTreeNumber": 0,
+    "HavertedNumber": 0,
+    "PlantedTime": "2023-04-22T12:31:35.9808421+07:00",
+    "PreviousProductTime": "2023-04-22T12:31:35.9808421+07:00"
+  },
+  {
+    "TreeType": 3,
+    "Product": {
+      "Name": "Milk",
+      "SellPrice": 1,
+      "IsPlantable": false,
+      "TreeType": 0
+    },
+    "CooldownTime": 30.0,
+    "MaxProduct": 100,
+    "OnTreeNumber": 0,
+    "HavertedNumber": 0,
+    "PlantedTime": "2023-04-22T12:31:35.9828405+07:00",
+    "PreviousProductTime": "2023-04-22T12:31:35.9828405+07:00"
+  },
+  {
+    "TreeType": 3,
+    "Product": {
+      "Name": "StrawBerry",
+      "SellPrice": 5,
+      "IsPlantable": false,
+      "TreeType": 0
+    },
+    "CooldownTime": 1.0,
+    "MaxProduct": 20,
+    "OnTreeNumber": 0,
+    "HavertedNumber": 0,
+    "PlantedTime": "2023-04-22T12:31:35.9848397+07:00",
+    "PreviousProductTime": "2023-04-22T12:31:35.9848397+07:00"
+  }
+]

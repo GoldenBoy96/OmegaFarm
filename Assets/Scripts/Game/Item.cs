@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Utils;
+using CsvHelper.Configuration.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -9,22 +10,35 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.Game
 {
-    internal class Item 
+    public class Item 
     {
         private string name;
         private int sellPrice;
         private bool isPlantable;
         private int treeType;
 
-        public int SellPrice { get => sellPrice; set => sellPrice = value; }
-        public bool IsPlantable { get => isPlantable; set => isPlantable = value; }
-        public int TreeType { get => treeType; set => treeType = value; }
+        [Index(0)]
         public string Name { get => name; set => name = value; }
+        [Index(1)]
+        public int SellPrice { get => sellPrice; set => sellPrice = value; }
+        [Index(2)]
+        public bool IsPlantable { get => isPlantable; set => isPlantable = value; }
+        [Index(3)]
+        public int TreeType { get => treeType; set => treeType = value; }
+
+        public Item()
+        {
+        }
 
         public Item(string name)
         {
             this.name = name;
-            List<Item> itemDataSheet = ReadCSVConfigFile();
+            List<Item> itemDataSheet = ReadConfigFile();
+            if (itemDataSheet == null)
+            {
+                WriteConfigFile();
+                ReadConfigFile();
+            }
             foreach(Item item in itemDataSheet)
             {
                 if (name.Equals(item.Name))
@@ -32,6 +46,7 @@ namespace Assets.Scripts.Game
                     sellPrice = item.SellPrice;
                     isPlantable = item.IsPlantable;
                     treeType = item.treeType;
+                    break;
                 }
             }
         }
@@ -50,15 +65,31 @@ namespace Assets.Scripts.Game
             this.isPlantable = true;
         }
 
-        public static void WriteCSVConfigFile()
+        public static void WriteConfigFile()
         {
             List<Item> defaultItem = new List<Item>();
+            defaultItem.Add(new("TomatoSeed", 1, 1));
+            defaultItem.Add(new("Tomato", 5));
+            defaultItem.Add(new("BlueBerrySeed", 1, 2));
+            defaultItem.Add(new("BlueBerry", 8));
+            defaultItem.Add(new("DairyCowSeed", 50, 3));
+            defaultItem.Add(new("Milk", 15));
+            defaultItem.Add(new("StrawBerrySeed", 10, 4));
+            defaultItem.Add(new("StrawBerry", 5));
+
             CSV.WriteFile("Config/Item.csv", defaultItem);
         }
 
-        public static List<Item> ReadCSVConfigFile()
+        public static List<Item> ReadConfigFile()
         {
             return CSV.ReadFile<Item>("Config/Item.csv");
+        }
+
+        
+
+        public override string ToString()
+        {
+            return $"{{{nameof(Name)}={Name}, {nameof(SellPrice)}={SellPrice.ToString()}, {nameof(IsPlantable)}={IsPlantable.ToString()}, {nameof(TreeType)}={TreeType.ToString()}}}";
         }
     }
 }

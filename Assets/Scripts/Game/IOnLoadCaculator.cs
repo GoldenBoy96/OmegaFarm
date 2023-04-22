@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.Game
 {
-    class Main
+    internal interface IOnLoadCaculator
     {
-        public Player player;
-        public Shop shop;
+        public List<DateTime> OfflineEvent();
     }
 }

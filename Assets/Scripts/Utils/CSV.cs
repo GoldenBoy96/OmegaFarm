@@ -1,13 +1,9 @@
 ﻿using CsvHelper;
 using CsvHelper.Configuration;
-using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TreeEditor;
 
 namespace Assets.Scripts.Utils
 {
@@ -15,26 +11,54 @@ namespace Assets.Scripts.Utils
     {
         public static void WriteFile<T>(string filePath, List<T> objects)
         {
-            using (var writer = new StreamWriter(filePath))
-            using (var csv = new CsvWriter(writer, CultureInfo.InvariantCulture))
+            var configuration = new CsvConfiguration(CultureInfo.InvariantCulture)
+            {
+                HasHeaderRecord = true,
+                MissingFieldFound = null,
+                Delimiter = ";",
+                PrepareHeaderForMatch = args => args.Header.ToLowerInvariant(), 
+            };
+
+            using (StreamWriter writer = new StreamWriter(filePath))
+            using (CsvWriter csv = new CsvWriter(writer, configuration))
             {
                 csv.WriteRecords(objects);
+
             }
         }
 
         public static List<T> ReadFile<T>(string filePath)
         {
-            var configuration = new CsvConfiguration(CultureInfo.InvariantCulture)
-            {
-                HasHeaderRecord = false,
-            };
-
             List<T> records;
-            using (var reader = new StreamReader(filePath))
-            using (var csv = new CsvReader(reader, configuration))
+            try
             {
-                records = (List<T>)csv.GetRecords<T>();
+                CsvConfiguration configuration = new CsvConfiguration(CultureInfo.InvariantCulture)
+                {
+                    HasHeaderRecord = true,
+                    MissingFieldFound = null,
+                    Delimiter = ";",
+                    PrepareHeaderForMatch = args => args.Header.ToLowerInvariant(),
+                    //Must put PrepareHeaderForMatch here because GetRecords convert header name to lowercase as first letter
+                    //Ex: WriteRecord -> "NameName"
+                    //    ReadRecord  -> "nameName"
+                    //The latest version of CsvHelper change the way PrepareHeaderForMatch Work
+                    //Solution: https://stackoverflow.com/questions/66199631/prepareheaderformatch-change-in-csvhelper-v23
+                };
+
+
+                using (StreamReader reader = new StreamReader(filePath)) 
+                using (CsvReader csv = new CsvReader(reader, configuration))
+                {
+
+                    records = csv.GetRecords<T>().Cast<T>().ToList<T>();
+                    
+                }
             }
+            catch (FileNotFoundException)
+            {
+                return null;
+            }
+            
             return records;
         }
     }

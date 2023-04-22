@@ -1,0 +1,62 @@
+[
+  {
+    "ShopItems": {
+      "Amount": 1,
+      "Name": "TomatoSeed",
+      "SellPrice": 1,
+      "IsPlantable": true,
+      "TreeType": 1
+    },
+    "Price": 30,
+    "Amount": 1,
+    "Name": "TomatoSeed",
+    "SellPrice": 1,
+    "IsPlantable": true,
+    "TreeType": 1
+  },
+  {
+    "ShopItems": {
+      "Amount": 1,
+      "Name": "BlueBerrySeed",
+      "SellPrice": 1,
+      "IsPlantable": true,
+      "TreeType": 2
+    },
+    "Price": 50,
+    "Amount": 1,
+    "Name": "BlueBerrySeed",
+    "SellPrice": 1,
+    "IsPlantable": true,
+    "TreeType": 2
+  },
+  {
+    "ShopItems": {
+      "Amount": 1,
+      "Name": "DairyCowSeed",
+      "SellPrice": 50,
+      "IsPlantable": true,
+      "TreeType": 3
+    },
+    "Price": 100,
+    "Amount": 1,
+    "Name": "DairyCowSeed",
+    "SellPrice": 50,
+    "IsPlantable": true,
+    "TreeType": 3
+  },
+  {
+    "ShopItems": {
+      "Amount": 10,
+      "Name": "StrawBerrySeed",
+      "SellPrice": 10,
+      "IsPlantable": true,
+      "TreeType": 4
+    },
+    "Price": 400,
+    "Amount": 10,
+    "Name": "StrawBerrySeed",
+    "SellPrice": 10,
+    "IsPlantable": true,
+    "TreeType": 4
+  }
+]

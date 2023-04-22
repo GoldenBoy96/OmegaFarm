@@ -15,24 +15,24 @@ namespace Assets.Scripts.Utils
         protected JSON() { }
 
 
-        public static Object ReadData(string fileName)
+        public static T ReadData<T>(string filePath)
         {
             string jsonRead;
             try
             {
-                jsonRead = System.IO.File.ReadAllText("Data/"+ fileName + ".txt");
-                return JsonConvert.DeserializeObject<Object>(jsonRead);
+                jsonRead = System.IO.File.ReadAllText(filePath);
+                return JsonConvert.DeserializeObject<T>(jsonRead);
             }
             catch (FileNotFoundException)
             {
-                return null;
+                return default;
             }
         }
 
-        public static void SaveData(Object saveObject, string fileName)
+        public static void SaveData(Object saveObject, string filePath)
         {
-            string json = JsonConvert.SerializeObject(saveObject);
-            System.IO.File.WriteAllText("Data/" + fileName + ".txt", json);
+            string json = JsonConvert.SerializeObject(saveObject, Formatting.Indented);
+            System.IO.File.WriteAllText(filePath, json);
         }
     }
 }

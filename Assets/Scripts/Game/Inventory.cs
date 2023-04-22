@@ -10,48 +10,44 @@ namespace Assets.Scripts.Game
 {
     internal class Inventory
     {
-        public class Slot
-        {
-            public Item Item { get; set; }
-            public int Amount;
+        
 
-            public Slot(Item item, int amount)
-            {
-                Item = item;
-                Amount = amount;
-            }
-
-            public override string ToString() => $"({Item}, {Amount})";
-        }
-
-        private List<Slot> slots;
+        private List<ItemSlot> slots;
         private int numberOfSlot;
 
-        public Inventory (List<Slot> slots)
+        public List<ItemSlot> Slots { get => slots; set => slots = value; }
+        public int NumberOfSlot { get => numberOfSlot; set => numberOfSlot = value; }
+
+        public Inventory()
         {
-            this.slots = slots;
+            this.slots = new List<ItemSlot>();
+        }
+
+        public Inventory (List<ItemSlot> slots)
+        {
+            this.Slots = slots;
         }
         public Inventory(int numberOfSlot)
         {
-            slots = new();
-            this.numberOfSlot = numberOfSlot;
+            Slots = new(numberOfSlot);
+            this.NumberOfSlot = numberOfSlot;
         }
 
-        public void Put(Item item, int amount)
+        public void Put(string item, int amount)
         {
             bool itemExisted = false;
-            for(int i = 0; i < slots.Count; i++)
+            for(int i = 0; i < Slots.Count; i++)
             {
-                if (item.Name.Equals(slots[i].Item.Name))
+                if (item.Equals(Slots[i].Name))
                 {
-                    slots[i].Amount += amount;
+                    Slots[i].Amount += amount;
                     itemExisted = true;
                     break;
                 }
             }
             if (!itemExisted)
             {
-                slots.Add(new Slot(item, amount));
+                Slots.Add(new ItemSlot(item, amount));
             }
         }
         //public void Put(Item item, int number, int slot)
@@ -59,29 +55,33 @@ namespace Assets.Scripts.Game
 
         //}
 
-        public Slot Get(int number, int slot) 
+        public ItemSlot Get(int number, int slot) 
         {
-            Slot result;
-            if (slots[slot].Amount > number)
+            ItemSlot result;
+            if (Slots[slot].Amount > number)
             {
-                result = new(slots[slot].Item, number);
-                slots[slot].Amount -= number;
+                result = new(Slots[slot].Name, number);
+                Slots[slot].Amount -= number;
             } 
             else
             {
-                result = new(slots[slot].Item, number);
-                slots.Remove(slots[slot]);
+                result = new(Slots[slot].Name, number);
+                Slots.Remove(Slots[slot]);
             }
             
             return result;
         }
 
-        public Slot Get(int slot)
+        public ItemSlot Get(int slot)
         {
-            Slot result = new(slots[slot].Item, slots[slot].Amount);
-            slots.Remove(slots[slot]);
+            ItemSlot result = new(Slots[slot].Name, Slots[slot].Amount);
+            Slots.Remove(Slots[slot]);
             return result;
         }
-        
+
+        public override string ToString()
+        {
+            return $"{{{nameof(Slots)}={Slots}, {nameof(NumberOfSlot)}={NumberOfSlot.ToString()}}}";
+        }
     }
 }

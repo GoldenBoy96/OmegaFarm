@@ -1,0 +1,54 @@
+[
+  {
+    "Name": "Hi",
+    "DefaultId": 0,
+    "Plots": [
+      {
+        "Tree": null
+      },
+      {
+        "Tree": null
+      },
+      {
+        "Tree": null
+      }
+    ],
+    "Inventory": {
+      "Slots": [
+        {
+          "Amount": 10,
+          "Name": "TomatoSeed",
+          "SellPrice": 1,
+          "IsPlantable": true,
+          "TreeType": 1
+        },
+        {
+          "Amount": 10,
+          "Name": "BlueBerrySeed",
+          "SellPrice": 1,
+          "IsPlantable": true,
+          "TreeType": 2
+        },
+        {
+          "Amount": 2,
+          "Name": "DairyCowSeed",
+          "SellPrice": 50,
+          "IsPlantable": true,
+          "TreeType": 3
+        }
+      ],
+      "NumberOfSlot": 100
+    },
+    "Workers": [
+      {
+        "Type": 1,
+        "Cooldown": 2.0
+      }
+    ],
+    "Coins": 100,
+    "EquipmentsUpgrades": [
+      "2023-04-22T12:31:36.024519+07:00"
+    ],
+    "DeadTrees": []
+  }
+]

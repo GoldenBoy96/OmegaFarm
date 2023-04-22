@@ -1,0 +1,179 @@
+{
+  "Name": "Meow",
+  "DefaultId": 0,
+  "Plots": [
+    {
+      "Tree": {
+        "TreeType": 1,
+        "Product": {
+          "Name": "Tomato",
+          "SellPrice": 5,
+          "IsPlantable": false,
+          "TreeType": 0
+        },
+        "CooldownTime": 0.1,
+        "MaxProduct": 40,
+        "OnTreeNumber": 31,
+        "HavertedNumber": 0,
+        "PlantedTime": "2023-04-22T16:35:11.3838729+07:00",
+        "PreviousProductTime": "2023-04-22T16:38:17.3838729+07:00"
+      }
+    },
+    {
+      "Tree": {
+        "TreeType": 1,
+        "Product": {
+          "Name": "Tomato",
+          "SellPrice": 5,
+          "IsPlantable": false,
+          "TreeType": 0
+        },
+        "CooldownTime": 0.1,
+        "MaxProduct": 40,
+        "OnTreeNumber": 31,
+        "HavertedNumber": 0,
+        "PlantedTime": "2023-04-22T16:35:12.0953918+07:00",
+        "PreviousProductTime": "2023-04-22T16:38:18.0953918+07:00"
+      }
+    },
+    {
+      "Tree": {
+        "TreeType": 1,
+        "Product": {
+          "Name": "Tomato",
+          "SellPrice": 5,
+          "IsPlantable": false,
+          "TreeType": 0
+        },
+        "CooldownTime": 0.1,
+        "MaxProduct": 40,
+        "OnTreeNumber": 31,
+        "HavertedNumber": 0,
+        "PlantedTime": "2023-04-22T16:35:12.4225471+07:00",
+        "PreviousProductTime": "2023-04-22T16:38:18.4225471+07:00"
+      }
+    },
+    {
+      "Tree": {
+        "TreeType": 1,
+        "Product": {
+          "Name": "Tomato",
+          "SellPrice": 5,
+          "IsPlantable": false,
+          "TreeType": 0
+        },
+        "CooldownTime": 0.1,
+        "MaxProduct": 40,
+        "OnTreeNumber": 31,
+        "HavertedNumber": 0,
+        "PlantedTime": "2023-04-22T16:35:12.7435435+07:00",
+        "PreviousProductTime": "2023-04-22T16:38:18.7435435+07:00"
+      }
+    },
+    {
+      "Tree": {
+        "TreeType": 1,
+        "Product": {
+          "Name": "Tomato",
+          "SellPrice": 5,
+          "IsPlantable": false,
+          "TreeType": 0
+        },
+        "CooldownTime": 0.1,
+        "MaxProduct": 40,
+        "OnTreeNumber": 31,
+        "HavertedNumber": 0,
+        "PlantedTime": "2023-04-22T16:35:13.0476868+07:00",
+        "PreviousProductTime": "2023-04-22T16:38:19.0476868+07:00"
+      }
+    },
+    {
+      "Tree": {
+        "TreeType": 1,
+        "Product": {
+          "Name": "Tomato",
+          "SellPrice": 5,
+          "IsPlantable": false,
+          "TreeType": 0
+        },
+        "CooldownTime": 0.1,
+        "MaxProduct": 40,
+        "OnTreeNumber": 31,
+        "HavertedNumber": 0,
+        "PlantedTime": "2023-04-22T16:35:13.3843955+07:00",
+        "PreviousProductTime": "2023-04-22T16:38:19.3843955+07:00"
+      }
+    },
+    {
+      "Tree": {
+        "TreeType": 1,
+        "Product": {
+          "Name": "Tomato",
+          "SellPrice": 5,
+          "IsPlantable": false,
+          "TreeType": 0
+        },
+        "CooldownTime": 0.1,
+        "MaxProduct": 40,
+        "OnTreeNumber": 30,
+        "HavertedNumber": 0,
+        "PlantedTime": "2023-04-22T16:35:14.1254463+07:00",
+        "PreviousProductTime": "2023-04-22T16:38:14.1254463+07:00"
+      }
+    },
+    {
+      "Tree": {
+        "TreeType": 1,
+        "Product": {
+          "Name": "Tomato",
+          "SellPrice": 5,
+          "IsPlantable": false,
+          "TreeType": 0
+        },
+        "CooldownTime": 0.1,
+        "MaxProduct": 40,
+        "OnTreeNumber": 30,
+        "HavertedNumber": 0,
+        "PlantedTime": "2023-04-22T16:35:13.736352+07:00",
+        "PreviousProductTime": "2023-04-22T16:38:13.736352+07:00"
+      }
+    }
+  ],
+  "Inventory": {
+    "Slots": [
+      {
+        "Amount": 10,
+        "Name": "TomatoSeed",
+        "SellPrice": 1,
+        "IsPlantable": true,
+        "TreeType": 1
+      },
+      {
+        "Amount": 10,
+        "Name": "BlueBerrySeed",
+        "SellPrice": 1,
+        "IsPlantable": true,
+        "TreeType": 2
+      },
+      {
+        "Amount": 2,
+        "Name": "DairyCowSeed",
+        "SellPrice": 50,
+        "IsPlantable": true,
+        "TreeType": 3
+      }
+    ],
+    "NumberOfSlot": 100
+  },
+  "Workers": [
+    {
+      "Type": 1,
+      "Cooldown": 2.0
+    }
+  ],
+  "Coins": 100,
+  "EquipmentsUpgrades": [
+    "2023-04-22T12:31:36.024519+07:00"
+  ],
+  "DeadTrees": []
+}
