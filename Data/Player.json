@@ -14,9 +14,9 @@
         "CooldownTime": 0.1,
         "MaxProduct": 40,
         "OnTreeNumber": 0,
-        "HavertedNumber": 11,
-        "PlantedTime": "2023-04-23T16:33:29.9586621+07:00",
-        "PreviousProductTime": "2023-04-23T16:34:35.9586621+07:00",
+        "HavertedNumber": 0,
+        "PlantedTime": "2023-04-23T20:43:34.8303413+07:00",
+        "PreviousProductTime": "2023-04-23T20:43:34.8303413+07:00",
         "TimeBeforeDead": 60.0
       }
     },
@@ -30,7 +30,7 @@
   "Inventory": {
     "Slots": [
       {
-        "Amount": 6,
+        "Amount": 4,
         "Name": "TomatoSeed",
         "SellPrice": 1,
         "IsPlantable": true,
@@ -51,7 +51,7 @@
         "TreeType": 3
       },
       {
-        "Amount": 86,
+        "Amount": 110,
         "Name": "Tomato",
         "SellPrice": 5,
         "IsPlantable": false,
@@ -64,7 +64,7 @@
     {
       "Type": 1,
       "Cooldown": 0.1,
-      "PreviousWorkTime": "2023-04-23T16:34:36.2464543+07:00"
+      "PreviousWorkTime": "2023-04-23T20:43:34.7759266+07:00"
     }
   ],
   "Coins": 100,

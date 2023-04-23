@@ -29,7 +29,7 @@ public class UIController : MonoBehaviour, IGameController, IUpdateStatus
 
         //Debug.Log(Tree.ReadConfigFile());
 
-        //GameController.GenerateDefaultConfigFile();
+        GameController.GenerateDefaultConfigFile();
 
 
 
