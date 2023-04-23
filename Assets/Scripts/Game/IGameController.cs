@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Assets.Scripts.Game
 {
@@ -36,5 +32,10 @@ namespace Assets.Scripts.Game
         public ItemShop GetItemShop(string itemName);
 
         public void WokerWork();
+        public void HireWorker();
+
+        public void OnLoad();
+
+        public bool IsEndGame();
     }
 }

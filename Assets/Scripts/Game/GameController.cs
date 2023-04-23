@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Utils;
+using System;
 using System.Collections.Generic;
 
 namespace Assets.Scripts.Game
@@ -249,6 +250,114 @@ namespace Assets.Scripts.Game
 
                 }
             }
+        }
+
+        public void WokerWork(DateTime time)
+        {
+            foreach (Worker worker in player.Workers)
+            {
+                try
+                {
+                    string work = worker.Work(time);
+
+                    if (work != null)
+                    {
+
+                        int count = 0;
+                        bool isWorked = false;
+                        while (!isWorked)
+                        {
+                            count++;
+                            if (count >= 10)
+                            {
+                                isWorked = true;
+                            }
+
+                            switch (work)
+                            {
+                                case "Havert":
+                                    for (int i = 0; i < player.Plots.Count; i++)
+                                    {
+                                        if (player.Plots[i].Tree != null)
+                                        {
+                                            if (player.Plots[i].Tree.OnTreeNumber > 0 || player.Plots[i].Tree.HavertedNumber >= player.Plots[i].Tree.MaxProduct)
+                                            {
+                                                if (player.Plots[i].Tree.HavertedNumber >= player.Plots[i].Tree.MaxProduct)
+                                                {
+                                                    player.Plots[i].RemoveTree();
+                                                }
+                                                else
+                                                {
+                                                    Harvert(i);
+                                                }
+                                                isWorked = true;
+                                                break;
+                                            }
+                                        }
+
+                                    }
+                                    if (!isWorked)
+                                    {
+                                        work = "Plant";
+                                    }
+                                    break;
+                                case "Plant":
+                                    for (int i = 0; i < player.Plots.Count; i++)
+                                    {
+                                        if (player.Plots[i].Tree == null)
+                                        {
+                                            foreach (ItemSlot slot in player.Inventory.Slots)
+                                            {
+                                                if (slot.IsPlantable)
+                                                {
+                                                    PlantTree(i, player.Inventory.Get(1, slot.Name).TreeType);
+                                                    isWorked = true;
+                                                    break;
+                                                }
+                                            }
+                                            break;
+                                        }
+                                    }
+                                    break;
+                            }
+                        }
+                    }
+
+
+
+                }
+                catch
+                {
+
+                }
+            }
+        }
+        public void HireWorker()
+        {
+            if (player.Coins >= 500)
+            {
+                player.Coins -= 500;
+                player.Workers.Add(new Worker(1));
+            }
+        }
+
+        public void OnLoad()
+        {
+            List<DateTime> offlineTime = player.GetPredictEvent(DateTime.Now);
+            foreach(DateTime time in offlineTime)
+            {
+                player.UpdateStatus(DateTime.Now);
+                WokerWork(time);
+            }
+        }
+
+        public bool IsEndGame()
+        {
+            if (player.Coins >= 1000000)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

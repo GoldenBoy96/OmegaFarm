@@ -13,54 +13,24 @@
         },
         "CooldownTime": 0.1,
         "MaxProduct": 40,
-        "OnTreeNumber": 3,
-        "HavertedNumber": 1,
-        "PlantedTime": "2023-04-23T13:39:50.6583672+07:00",
-        "PreviousProductTime": "2023-04-23T13:40:14.6583672+07:00",
+        "OnTreeNumber": 0,
+        "HavertedNumber": 11,
+        "PlantedTime": "2023-04-23T16:33:29.9586621+07:00",
+        "PreviousProductTime": "2023-04-23T16:34:35.9586621+07:00",
         "TimeBeforeDead": 60.0
       }
     },
     {
-      "Tree": {
-        "TreeType": 1,
-        "Product": {
-          "Name": "Tomato",
-          "SellPrice": 5,
-          "IsPlantable": false,
-          "TreeType": 0
-        },
-        "CooldownTime": 0.1,
-        "MaxProduct": 40,
-        "OnTreeNumber": 3,
-        "HavertedNumber": 0,
-        "PlantedTime": "2023-04-23T13:39:56.6418608+07:00",
-        "PreviousProductTime": "2023-04-23T13:40:14.6418608+07:00",
-        "TimeBeforeDead": 60.0
-      }
+      "Tree": null
     },
     {
-      "Tree": {
-        "TreeType": 1,
-        "Product": {
-          "Name": "Tomato",
-          "SellPrice": 5,
-          "IsPlantable": false,
-          "TreeType": 0
-        },
-        "CooldownTime": 0.1,
-        "MaxProduct": 40,
-        "OnTreeNumber": 1,
-        "HavertedNumber": 0,
-        "PlantedTime": "2023-04-23T13:40:08.643188+07:00",
-        "PreviousProductTime": "2023-04-23T13:40:14.643188+07:00",
-        "TimeBeforeDead": 60.0
-      }
+      "Tree": null
     }
   ],
   "Inventory": {
     "Slots": [
       {
-        "Amount": 7,
+        "Amount": 6,
         "Name": "TomatoSeed",
         "SellPrice": 1,
         "IsPlantable": true,
@@ -81,20 +51,20 @@
         "TreeType": 3
       },
       {
-        "Amount": 1,
+        "Amount": 86,
         "Name": "Tomato",
         "SellPrice": 5,
         "IsPlantable": false,
         "TreeType": 0
       }
     ],
-    "NumberOfSlot": 100
+    "NumberOfSlot": 990000
   },
   "Workers": [
     {
       "Type": 1,
       "Cooldown": 0.1,
-      "PreviousWorkTime": "2023-04-23T13:39:20.5698523+07:00"
+      "PreviousWorkTime": "2023-04-23T16:34:36.2464543+07:00"
     }
   ],
   "Coins": 100,

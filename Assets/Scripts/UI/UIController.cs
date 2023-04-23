@@ -34,6 +34,8 @@ public class UIController : MonoBehaviour, IGameController, IUpdateStatus
 
 
         gameController = new GameController();
+        OnLoad();
+
         InvokeRepeating("UpdateStatus", 0, 0.1f);
     }
 
@@ -42,13 +44,13 @@ public class UIController : MonoBehaviour, IGameController, IUpdateStatus
         
         gameController.Player.UpdateStatus();
         WokerWork();
+        if (IsEndGame())
+        {
+            Debug.Log("You Win!");
+        }
         gameController.SaveData();
     }
 
-    void Update()
-    {
-       
-    }
 
     public Tree GetTree(int plot)
     {
@@ -125,12 +127,36 @@ public class UIController : MonoBehaviour, IGameController, IUpdateStatus
 
     public void WokerWork()
     {
-        //Debug.Log(gameController.Player.Workers[0].PreviousWorkTime);
-        //Debug.Log((DateTime.Now-gameController.Player.Workers[0].PreviousWorkTime).Minutes);
+        Debug.Log(gameController.Player.Workers[0].PreviousWorkTime);
+        Debug.Log((DateTime.Now - gameController.Player.Workers[0].PreviousWorkTime));
         //Debug.Log(gameController.Player.Workers[0].Work());
 
 
         gameController.WokerWork();
         //Debug.Log(DateTime.Now.Subtract( gameController.Player.Workers[0].PreviousWorkTime).Minutes);
+    }
+
+    public int GetWorkerNumber()
+    {
+        return gameController.Player.Workers.Count;
+    }
+
+    public int GetUpgradeLevel()
+    {
+        return gameController.Player.EquipmentsUpgrades.Count;
+    }
+    public void HireWorker()
+    {
+        gameController.HireWorker();
+    }
+
+    public bool IsEndGame()
+    {
+        return gameController.IsEndGame();
+    }
+
+        public void OnLoad()
+    {
+        gameController.OnLoad();
     }
 }

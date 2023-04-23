@@ -1,14 +1,10 @@
 ﻿using Assets.Scripts.Utils;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Assets.Scripts.Game
 {
-    internal class Player : IUpdateStatus
+    internal class Player : IUpdateStatus, IPredictEvent 
     {
         private string name;
         private int defaultId;
@@ -102,6 +98,40 @@ namespace Assets.Scripts.Game
             }
             
         }
+
+        public void UpdateStatus(DateTime time)
+        {
+            foreach (PlantingPlot plot in Plots)
+            {
+                try
+                {
+                    plot.Tree.CreateProduct(EquipmentsUpgrades, time);
+                    plot.UpdateStatus(time);
+                }
+                catch
+                {
+
+                }
+            }
+        }
+
+        public List<DateTime> GetPredictEvent(DateTime time)
+        {
+            List<DateTime> result = new List<DateTime>();
+            foreach(PlantingPlot plot in Plots)
+            {
+                if (plot.Tree != null)
+                {
+                    result.AddRange(plot.Tree.GetPredictEvent(time));
+                }
+            }
+            foreach(Worker worker in Workers)
+            {
+                result.AddRange(worker.GetPredictEvent(time));
+            }
+            result.Sort();
+            return result;
+        }
         public static void WriteConfigFile()
         {
             List<Player> defaultPlayer = new();
@@ -141,5 +171,7 @@ namespace Assets.Scripts.Game
         {
             return $"{{{nameof(Name)}={Name}, {nameof(DefaultId)}={DefaultId.ToString()}, {nameof(Plots)}={Plots}, {nameof(Inventory)}={Inventory}, {nameof(Workers)}={Workers}, {nameof(Coins)}={Coins.ToString()}, {nameof(EquipmentsUpgrades)}={EquipmentsUpgrades}, {nameof(DeadTrees)}={DeadTrees}}}";
         }
+
+        
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.Game
 {
-    internal class Worker
+    public class Worker : IPredictEvent
     {
         private int type;
         private float cooldown; //minutes
@@ -56,10 +56,11 @@ namespace Assets.Scripts.Game
 
         public string Work()
         {
+            TimeSpan timeCoolDown = TimeSpan.FromMinutes(cooldown);
             TimeSpan denta = DateTime.Now - previousWorkTime;
-            if (denta.Minutes >= cooldown)
+            if (denta >= timeCoolDown)
             {
-                previousWorkTime = previousWorkTime.AddMinutes(cooldown);
+                previousWorkTime += timeCoolDown;
                 int work = new Random().Next(1, 3);
                 switch (work)
                 {
@@ -73,6 +74,39 @@ namespace Assets.Scripts.Game
             return null;
         }
 
+        public string Work(DateTime time)
+        {
+            if (time > previousWorkTime)
+            {
+                TimeSpan timeCoolDown = TimeSpan.FromMinutes(cooldown);
+                TimeSpan denta = time - previousWorkTime;
+                if (denta >= timeCoolDown)
+                {
+                    previousWorkTime += timeCoolDown;
+                    int work = new Random().Next(1, 3);
+                    switch (work)
+                    {
+                        case 1:
+                            return "Havert";
+                        case 2:
+                            return "Plant";
+                    }
+
+                }
+            }
+            
+            return null;
+        }
+
+        public List<DateTime> GetPredictEvent(DateTime time)
+        {
+            List<DateTime> result = new List<DateTime>();
+            for (DateTime t = previousWorkTime; t < time; t += TimeSpan.FromMinutes(cooldown))
+            {
+                result.Add(t);
+            }
+            return result;
+        }
         public static void WriteConfigFile()
         {
             List<Worker> defaultWorker = new List<Worker>();
@@ -86,5 +120,11 @@ namespace Assets.Scripts.Game
             return CSV.ReadFile<Worker>("Config/Worker.csv");
         }
 
+        public override string ToString()
+        {
+            return $"{{{nameof(Type)}={Type.ToString()}, {nameof(Cooldown)}={Cooldown.ToString()}, {nameof(PreviousWorkTime)}={PreviousWorkTime.ToString()}}}";
+        }
+
+        
     }
 }
