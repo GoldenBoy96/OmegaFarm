@@ -42,12 +42,13 @@
     "Workers": [
       {
         "Type": 1,
-        "Cooldown": 2.0
+        "Cooldown": 2.0,
+        "PreviousWorkTime": "2023-04-23T13:27:33.4160536+07:00"
       }
     ],
     "Coins": 100,
     "EquipmentsUpgrades": [
-      "2023-04-22T16:46:38.4051982+07:00"
+      "2023-04-23T13:27:33.4205658+07:00"
     ],
     "DeadTrees": []
   }

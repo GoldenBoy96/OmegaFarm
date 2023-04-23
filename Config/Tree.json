@@ -11,9 +11,9 @@
     "MaxProduct": 40,
     "OnTreeNumber": 0,
     "HavertedNumber": 0,
-    "PlantedTime": "2023-04-22T16:46:38.3274264+07:00",
-    "PreviousProductTime": "2023-04-22T16:46:38.3274264+07:00",
-    "TimeBeforeDead": 1.0
+    "PlantedTime": "2023-04-23T13:27:33.3864996+07:00",
+    "PreviousProductTime": "2023-04-23T13:27:33.3864996+07:00",
+    "TimeBeforeDead": 60.0
   },
   {
     "TreeType": 2,
@@ -27,9 +27,9 @@
     "MaxProduct": 40,
     "OnTreeNumber": 0,
     "HavertedNumber": 0,
-    "PlantedTime": "2023-04-22T16:46:38.3304256+07:00",
-    "PreviousProductTime": "2023-04-22T16:46:38.3304256+07:00",
-    "TimeBeforeDead": 1.0
+    "PlantedTime": "2023-04-23T13:27:33.3884988+07:00",
+    "PreviousProductTime": "2023-04-23T13:27:33.3884988+07:00",
+    "TimeBeforeDead": 60.0
   },
   {
     "TreeType": 3,
@@ -43,9 +43,9 @@
     "MaxProduct": 100,
     "OnTreeNumber": 0,
     "HavertedNumber": 0,
-    "PlantedTime": "2023-04-22T16:46:38.3334247+07:00",
-    "PreviousProductTime": "2023-04-22T16:46:38.3334247+07:00",
-    "TimeBeforeDead": 1.0
+    "PlantedTime": "2023-04-23T13:27:33.3900045+07:00",
+    "PreviousProductTime": "2023-04-23T13:27:33.3900045+07:00",
+    "TimeBeforeDead": 60.0
   },
   {
     "TreeType": 4,
@@ -55,12 +55,12 @@
       "IsPlantable": false,
       "TreeType": 0
     },
-    "CooldownTime": 0.05,
+    "CooldownTime": 0.5,
     "MaxProduct": 20,
     "OnTreeNumber": 0,
     "HavertedNumber": 0,
-    "PlantedTime": "2023-04-22T16:46:38.3369415+07:00",
-    "PreviousProductTime": "2023-04-22T16:46:38.3369415+07:00",
-    "TimeBeforeDead": 10.0
+    "PlantedTime": "2023-04-23T13:27:33.391011+07:00",
+    "PreviousProductTime": "2023-04-23T13:27:33.391011+07:00",
+    "TimeBeforeDead": 60.0
   }
 ]

@@ -46,10 +46,45 @@ namespace Assets.Scripts.Game
         {
             foreach(ItemShop x in ShopItems)
             {
-                if (item.Name.Equals(x.ShopItems.Name))
+                if (item.Name.Equals(x.Name))
                 {
+                    return new ItemSlot(x.Name, x.Amount);
+                }
+            }
+            return null;
+        }
 
-                    break;
+        public ItemShop Buy(string itemName)
+        {
+            foreach (ItemShop x in ShopItems)
+            {
+                if (itemName.Equals(x.ShopItems.Name))
+                {
+                    return x;
+                }
+            }
+            return null;
+        }
+
+        public float GetPrice(string itemName)
+        {
+            foreach (ItemShop x in ShopItems)
+            {
+                if (itemName.Equals(x.ShopItems.Name))
+                {
+                    return x.SellPrice;
+                }
+            }
+            return 0;
+        }
+
+        public ItemShop GetItemShop(string itemName)
+        {
+            foreach (ItemShop x in ShopItems)
+            {
+                if (itemName.Equals(x.ShopItems.Name))
+                {
+                    return x;
                 }
             }
             return null;

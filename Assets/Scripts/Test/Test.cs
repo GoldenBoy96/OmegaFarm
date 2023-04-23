@@ -6,7 +6,7 @@ using UnityEngine;
 using Tree = Assets.Scripts.Game.Tree;
 using Newtonsoft.Json;
 
-public class ConsoleDemo : MonoBehaviour
+public class Test : MonoBehaviour
 {
     Player player;
     // Start is called before the first frame update

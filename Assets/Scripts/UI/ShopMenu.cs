@@ -8,7 +8,7 @@ public class ShopMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        ToggleShop();
     }
 
     // Update is called once per frame
@@ -20,5 +20,18 @@ public class ShopMenu : MonoBehaviour
     public void ShowPlayerCoin()
     {
         transform.Find("Coin").Find("Text").GetComponent<TextMeshProUGUI>().SetText(UIController.Instance.GetPlayerCoin().ToString());
+    }
+
+    public void ToggleShop()
+    {
+        GameObject shop = transform.Find("Shop").gameObject;
+        if (shop.active)
+        {
+            shop.SetActive(false);
+        }
+        else
+        {
+            shop.SetActive(true);
+        }
     }
 }

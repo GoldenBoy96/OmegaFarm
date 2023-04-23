@@ -30,5 +30,11 @@ namespace Assets.Scripts.Game
         public int GetPlayerCoin();
 
         public void Sell(string itemName);
+
+        public void Buy(string itemName);
+
+        public ItemShop GetItemShop(string itemName);
+
+        public void WokerWork();
     }
 }

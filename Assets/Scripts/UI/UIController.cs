@@ -1,4 +1,5 @@
 using Assets.Scripts.Game;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,28 +30,24 @@ public class UIController : MonoBehaviour, IGameController, IUpdateStatus
         //Debug.Log(Tree.ReadConfigFile());
 
         //GameController.GenerateDefaultConfigFile();
+
+
+
         gameController = new GameController();
         InvokeRepeating("UpdateStatus", 0, 0.1f);
     }
 
     public void UpdateStatus()
-    {
-        try
-        {
-            Debug.Log(gameController.Player.Plots[3].Tree.IsDead());
-        }
-        catch
-        {
-
-        }
-
+    {       
+        
         gameController.Player.UpdateStatus();
+        WokerWork();
         gameController.SaveData();
     }
 
     void Update()
     {
-        
+       
     }
 
     public Tree GetTree(int plot)
@@ -70,7 +67,7 @@ public class UIController : MonoBehaviour, IGameController, IUpdateStatus
 
     public List<PlantingPlot> GetPlots()
     {
-        Debug.Log(gameController.GetPlots().Count);
+        //Debug.Log(gameController.GetPlots().Count);
         return gameController.GetPlots();
     }
 
@@ -101,8 +98,8 @@ public class UIController : MonoBehaviour, IGameController, IUpdateStatus
 
     public bool PlantTree(string itemName)
     {
-        Debug.Log(itemName);
-        Debug.Log(new Item(itemName).TreeType);
+        //Debug.Log(itemName);
+        //Debug.Log(new Item(itemName).TreeType);
         return gameController.PlantTree(itemName);
     }
 
@@ -114,5 +111,26 @@ public class UIController : MonoBehaviour, IGameController, IUpdateStatus
     public void Sell(string itemName)
     {
         gameController.Sell(itemName);
+    }
+
+    public void Buy(string itemName)
+    {
+        gameController.Buy(itemName);
+    }
+
+    public ItemShop GetItemShop(string itemName)
+    {
+        return gameController.GetItemShop(itemName);
+    }
+
+    public void WokerWork()
+    {
+        //Debug.Log(gameController.Player.Workers[0].PreviousWorkTime);
+        //Debug.Log((DateTime.Now-gameController.Player.Workers[0].PreviousWorkTime).Minutes);
+        //Debug.Log(gameController.Player.Workers[0].Work());
+
+
+        gameController.WokerWork();
+        //Debug.Log(DateTime.Now.Subtract( gameController.Player.Workers[0].PreviousWorkTime).Minutes);
     }
 }

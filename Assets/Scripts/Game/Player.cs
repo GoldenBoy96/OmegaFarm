@@ -54,11 +54,19 @@ namespace Assets.Scripts.Game
                 {
                     this.DefaultId = defaultId;
                     this.Workers = player.Workers;
+                    for (int i = 0; i < Workers.Count; i++)
+                    {
+                        Workers[i] = new Worker(Workers[i].Type);
+                    }
                     this.Coins = player.Coins;
                     this.EquipmentsUpgrades = player.EquipmentsUpgrades;
                     this.Plots = player.Plots;
                     this.DeadTrees = new();
                     this.Inventory = player.Inventory;
+                    for (int i = 0; i < Inventory.Slots.Count; i++)
+                    {
+                        Inventory.Slots[i] = new ItemSlot(Inventory.Slots[i].Name, Inventory.Slots[i].Amount);
+                    }
                 }
             }
         }
@@ -80,18 +88,19 @@ namespace Assets.Scripts.Game
 
         public void UpdateStatus()
         {
-            foreach(PlantingPlot plot in Plots)
+            foreach (PlantingPlot plot in Plots)
             {
                 try
                 {
                     plot.Tree.CreateProduct(EquipmentsUpgrades);
                     plot.UpdateStatus();
-                } 
+                }
                 catch
                 {
 
                 }
             }
+            
         }
         public static void WriteConfigFile()
         {

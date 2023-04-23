@@ -12,17 +12,22 @@ namespace Assets.Scripts.Game
     {
         private int type;
         private float cooldown; //minutes
+        private DateTime previousWorkTime;
 
         [Index(0)]
         public int Type { get => type; set => type = value; }
         [Index(1)]
         public float Cooldown { get => cooldown; set => cooldown = value; }
-        
-        public Worker() { }
+        [Index(2)]
+        public DateTime PreviousWorkTime { get => previousWorkTime; set => previousWorkTime = value; }
+       
+               
+        public Worker() {
+            previousWorkTime = DateTime.Now;
+        }
 
         public Worker(int type)
         {
-            ReadConfigFile();
             List<Worker> workerDataSheet = ReadConfigFile();
             if (workerDataSheet == null)
             {
@@ -41,12 +46,31 @@ namespace Assets.Scripts.Game
                     }
                 }
             }
-
+            previousWorkTime = DateTime.Now;
         }
         public Worker(int type, float cooldown)
         {
             this.type = type;
             this.cooldown = cooldown;
+        }
+
+        public string Work()
+        {
+            TimeSpan denta = DateTime.Now - previousWorkTime;
+            if (denta.Minutes >= cooldown)
+            {
+                previousWorkTime = previousWorkTime.AddMinutes(cooldown);
+                int work = new Random().Next(1, 3);
+                switch (work)
+                {
+                    case 1:
+                        return "Havert";
+                    case 2:
+                        return "Plant";
+                }
+                
+            }
+            return null;
         }
 
         public static void WriteConfigFile()

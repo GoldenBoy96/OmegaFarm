@@ -132,7 +132,7 @@ public class Plot : MonoBehaviour
     {
         try
         {
-            Debug.Log(plotId + " | " + UIController.Instance.CheckProductOnTree(plotId));
+            //Debug.Log(plotId + " | " + UIController.Instance.CheckProductOnTree(plotId));
             int productOnTree = UIController.Instance.CheckProductOnTree(plotId);
             if (productOnTree > 0)
             {

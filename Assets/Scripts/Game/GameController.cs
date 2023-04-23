@@ -1,13 +1,9 @@
 ﻿using Assets.Scripts.Utils;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Assets.Scripts.Game
 {
-    class GameController : IGameController
+    class GameController :  IGameController
     {
         private Player player;
         private Shop shop;
@@ -22,6 +18,17 @@ namespace Assets.Scripts.Game
             {
                 player = new Player("Meow", 0);
                 SaveData();
+            }
+            else
+            {
+                for (int i = 0; i < player.Workers.Count; i++)
+                {
+                    player.Workers[i] = new Worker(player.Workers[i].Type);
+                }
+                for (int i = 0; i < player.Inventory.Slots.Count; i++)
+                {
+                    player.Inventory.Slots[i] = new ItemSlot(player.Inventory.Slots[i].Name, player.Inventory.Slots[i].Amount);
+                }
             }
             shop = new Shop();
         }
@@ -98,10 +105,6 @@ namespace Assets.Scripts.Game
             Worker.WriteConfigFile();
         }
 
-        public override string ToString()
-        {
-            return $"{{}}";
-        }
 
         public int CheckProductOnTree(int plot)
         {
@@ -122,7 +125,11 @@ namespace Assets.Scripts.Game
 
         public void UpgradeEquipment()
         {
-            player.UpgradeEquipment();
+            if (player.Coins >= 500)
+            {
+                player.Coins -= 500;
+                player.UpgradeEquipment();
+            }
         }
 
         public int GetItemNumber(string itemName)
@@ -145,6 +152,102 @@ namespace Assets.Scripts.Game
             catch
             {
 
+            }
+        }
+
+        public void Buy(string itemName)
+        {
+            if (player.Coins >= shop.GetPrice(itemName))
+            {
+                ItemShop itemBuy = shop.Buy(itemName);
+                player.Coins -= itemBuy.Price;
+                player.Inventory.Put(itemBuy.Name, itemBuy.Amount);
+            }
+        }
+
+        public ItemShop GetItemShop(string itemName)
+        {
+            return shop.GetItemShop(itemName);
+        }
+
+        public void WokerWork()
+        {
+            foreach (Worker worker in player.Workers)
+            {
+                try
+                {
+                    string work = worker.Work();
+
+                    if (work != null)
+                    {
+                        
+                        int count = 0;
+                        bool isWorked = false;
+                        while (!isWorked)
+                        {
+                            count++;
+                            if (count >= 10)
+                            {
+                                isWorked = true;
+                            }
+
+                            switch (work)
+                            {
+                                case "Havert":
+                                    for (int i = 0; i < player.Plots.Count; i++)
+                                    {
+                                        if (player.Plots[i].Tree != null)
+                                        {
+                                            if (player.Plots[i].Tree.OnTreeNumber > 0 || player.Plots[i].Tree.HavertedNumber >= player.Plots[i].Tree.MaxProduct)
+                                            {
+                                                if (player.Plots[i].Tree.HavertedNumber >= player.Plots[i].Tree.MaxProduct)
+                                                {
+                                                    player.Plots[i].RemoveTree();
+                                                }
+                                                else
+                                                {
+                                                    Harvert(i);
+                                                }
+                                                isWorked = true;
+                                                break;
+                                            }
+                                        }
+
+                                    }
+                                    if (!isWorked)
+                                    {
+                                        work = "Plant";
+                                    }
+                                    break;
+                                case "Plant":
+                                    for (int i = 0; i < player.Plots.Count; i++)
+                                    {
+                                        if (player.Plots[i].Tree == null)
+                                        {
+                                            foreach (ItemSlot slot in player.Inventory.Slots)
+                                            {
+                                                if (slot.IsPlantable)
+                                                {
+                                                    PlantTree(i, player.Inventory.Get(1, slot.Name).TreeType);
+                                                    isWorked = true;
+                                                    break;
+                                                }
+                                            }
+                                            break;
+                                        }
+                                    }
+                                    break;
+                            }
+                        }
+                    }
+
+
+
+                }
+                catch
+                {
+
+                }
             }
         }
     }
